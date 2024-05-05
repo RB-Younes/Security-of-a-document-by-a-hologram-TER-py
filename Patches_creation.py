@@ -103,21 +103,27 @@ def all_(mother_frames_path, save_path):
                 result = get_all_mosaics(current_path, labels_mask)
                 for key, val in result.items():
                     if key == "Holo":
+                        os.makedirs(save_path + "/Holo" + "/psp_" + str(cpt_glob).zfill(4), exist_ok=True)
                         for img in val:
-                            cv2.imwrite(save_path + "/Holo" + "/mosa_" + str(cpt).zfill(4) + '.jpg', img)
+                            cv2.imwrite(save_path + "/Holo" + "/psp_" + str(cpt_glob).zfill(4) + "/mosa_" + str(cpt).zfill(4) + '.jpg', img)
                             cpt += 1
                     else:
+                        os.makedirs(save_path + "/No-Holo" + "/psp_" + str(cpt_glob).zfill(4), exist_ok=True)
                         for img in val:
-                            cv2.imwrite(save_path + "/No-Holo" + "/mosa_" + str(cpt2).zfill(4) + '.jpg', img)
+                            cv2.imwrite(save_path + "/No-Holo" + "/psp_" + str(cpt_glob).zfill(4) + "/mosa_" + str(cpt2).zfill(4) + '.jpg', img)
                             cpt2 += 1
             else:
                 result = get_all_mosaics(current_path, labels_mask)
+                os.makedirs(save_path + "/No-Holo" + "/psp_" + str(cpt_glob).zfill(4), exist_ok=True)
                 for key, val in result.items():
                     for img in val:
-                        cv2.imwrite(save_path + "/No-Holo" + "/mosa_" + str(cpt2).zfill(4) + '.jpg', img)
+                        cv2.imwrite(save_path + "/No-Holo" + "/psp_" + str(cpt_glob).zfill(4) + "/mosa_" + str(cpt2).zfill(4) + '.jpg', img)
                         cpt2 += 1
+            cpt_glob += 1
+            cpt = 0
+            cpt2 = 0
 
 
 if __name__ == '__main__':
     #
-    all_("E:/dataset MIDV HOLO/images_homo", "E:/dataset MIDV HOLO/Mosaics")
+    all_("E:/dataset MIDV HOLO/images_homo", "E:/dataset MIDV HOLO/Mosaics_V3")

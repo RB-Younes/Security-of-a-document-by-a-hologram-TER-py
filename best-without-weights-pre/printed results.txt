@@ -1,0 +1,129 @@
+-----------------------------------------------------------------[BEST MODEL]-------------------------------------------------------------------------------------------------------------------------------------------------------
+E:\miniconda\envs\tf\python.exe "E:\TER py\Test_model.py" 
+Found 1200 images belonging to 2 classes.
+2024-05-05 02:15:50.591623: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX AVX2
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-05-05 02:15:51.236690: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1616] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 2771 MB memory:  -> device: 0, name: NVIDIA GeForce GTX 1050 Ti with Max-Q Design, pci bus id: 0000:01:00.0, compute capability: 6.1
+Model: "sequential"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ mobilenet_1.00_224 (Functio  (None, 7, 7, 1024)       3228864   
+ nal)                                                            
+                                                                 
+ global_average_pooling2d (G  (None, 1024)             0         
+ lobalAveragePooling2D)                                          
+                                                                 
+ batch_normalization (BatchN  (None, 1024)             4096      
+ ormalization)                                                   
+                                                                 
+ dropout (Dropout)           (None, 1024)              0         
+                                                                 
+ dense (Dense)               (None, 256)               262400    
+                                                                 
+ dense_1 (Dense)             (None, 1)                 257       
+                                                                 
+=================================================================
+Total params: 3,495,617
+Trainable params: 3,439,617
+Non-trainable params: 56,000
+_________________________________________________________________
+---------------------best_model-----------------------
+acc: 0.9785
+loss: 0.0671
+val_acc: 0.9175
+val_loss: 0.2471
+---------------------last_epoch_model-----------------------
+acc: 0.9880
+loss: 0.0395
+val_acc: 0.9025
+val_loss: 0.3461
+2024-05-05 02:15:53.688516: I tensorflow/stream_executor/cuda/cuda_dnn.cc:384] Loaded cuDNN version 8100
+1200/1200 [==============================] - 11s 7ms/step - loss: 0.2290 - acc: 0.9317
+Test accuracy: 0.9316666722297668
+Test loss: 0.22897234559059143
+1200/1200 [==============================] - 7s 6ms/step
+              precision    recall  f1-score   support
+
+           0     0.8757    0.9000    0.8877       360
+           1     0.9566    0.9452    0.9509       840
+
+    accuracy                         0.9317      1200
+   macro avg     0.9162    0.9226    0.9193      1200
+weighted avg     0.9323    0.9317    0.9319      1200
+
+Class 0: Sensitivity = 0.9000, Specificity = 0.9452
+Class 1: Sensitivity = 0.9452, Specificity = 0.9000
+Macro-averaged Sensitivity = 0.9226, Macro-averaged Specificity = 0.9226
+(1200, 3)
+(1200, 3)
+E:\miniconda\envs\tf\lib\site-packages\sklearn\metrics\_ranking.py:1146: UndefinedMetricWarning: No positive samples in y_true, true positive value should be meaningless
+  warnings.warn(
+
+Process finished with exit code 0
+
+
+-----------------------------------------------------------------[LAST EPOCH MODEL]--------------------------------------------------------------------------------------------------------------------------------------------------
+
+E:\miniconda\envs\tf\python.exe "E:\TER py\Test_model.py" 
+Found 1200 images belonging to 2 classes.
+2024-05-05 02:40:07.838649: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX AVX2
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-05-05 02:40:08.579203: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1616] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 2771 MB memory:  -> device: 0, name: NVIDIA GeForce GTX 1050 Ti with Max-Q Design, pci bus id: 0000:01:00.0, compute capability: 6.1
+Model: "sequential"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ mobilenet_1.00_224 (Functio  (None, 7, 7, 1024)       3228864   
+ nal)                                                            
+                                                                 
+ global_average_pooling2d (G  (None, 1024)             0         
+ lobalAveragePooling2D)                                          
+                                                                 
+ batch_normalization (BatchN  (None, 1024)             4096      
+ ormalization)                                                   
+                                                                 
+ dropout (Dropout)           (None, 1024)              0         
+                                                                 
+ dense (Dense)               (None, 256)               262400    
+                                                                 
+ dense_1 (Dense)             (None, 1)                 257       
+                                                                 
+=================================================================
+Total params: 3,495,617
+Trainable params: 3,439,617
+Non-trainable params: 56,000
+_________________________________________________________________
+---------------------best_model-----------------------
+acc: 0.9785
+loss: 0.0671
+val_acc: 0.9175
+val_loss: 0.2471
+---------------------last_epoch_model-----------------------
+acc: 0.9880
+loss: 0.0395
+val_acc: 0.9025
+val_loss: 0.3461
+2024-05-05 02:40:11.362884: I tensorflow/stream_executor/cuda/cuda_dnn.cc:384] Loaded cuDNN version 8100
+1200/1200 [==============================] - 14s 9ms/step - loss: 0.2892 - acc: 0.9217
+Test accuracy: 0.92166668176651
+Test loss: 0.2892143130302429
+1200/1200 [==============================] - 8s 7ms/step
+              precision    recall  f1-score   support
+
+           0     0.9182    0.8111    0.8614       360
+           1     0.9229    0.9690    0.9454       840
+
+    accuracy                         0.9217      1200
+   macro avg     0.9206    0.8901    0.9034      1200
+weighted avg     0.9215    0.9217    0.9202      1200
+
+Class 0: Sensitivity = 0.8111, Specificity = 0.9690
+Class 1: Sensitivity = 0.9690, Specificity = 0.8111
+Macro-averaged Sensitivity = 0.8901, Macro-averaged Specificity = 0.8901
+(1200, 3)
+(1200, 3)
+E:\miniconda\envs\tf\lib\site-packages\sklearn\metrics\_ranking.py:1146: UndefinedMetricWarning: No positive samples in y_true, true positive value should be meaningless
+  warnings.warn(
+
+Process finished with exit code 0

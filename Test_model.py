@@ -6,10 +6,10 @@ import numpy as np
 from keras.preprocessing.image import ImageDataGenerator
 import seaborn as sns
 
-test_folder = 'E:/dataset MIDV HOLO/Mosaics splited/test'
+test_folder = 'E:/dataset MIDV HOLO/Mosaics V3 splited final/test'
 
 
-test_datagen = ImageDataGenerator()  # Image normalization.
+test_datagen = ImageDataGenerator(rescale=1. / 255)  # Image normalization.
 
 test_set = test_datagen.flow_from_directory(test_folder,
                                             target_size=(224, 224),
@@ -20,12 +20,12 @@ test_set = test_datagen.flow_from_directory(test_folder,
 """# **Performance Metrics**"""
 
 # load best 64b model
-model = tf.keras.models.load_model('best-without-weights/last_epoch_model.h5')
+model = tf.keras.models.load_model('best-with-weights-pre/last_epoch_model.h5')
 
 model.summary()
 
 # load the saved model from file
-with open('best-without-weights/history.pkl', 'rb') as file:
+with open('best-with-weights-pre/history.pkl', 'rb') as file:
     hist = pickle.load(file)
 
 # access the history attribute of the model
@@ -79,7 +79,7 @@ confusion_matrix_res = confusion_matrix(test_set.classes, y_pred)
 sns.heatmap(confusion_matrix_res, annot=True, fmt="d")
 plt.xlabel("Predicted Label", fontsize=12)
 plt.ylabel("True Label", fontsize=12)
-plt.savefig('best-without-weights/confusion_matrix_res.png')
+plt.savefig('best-with-weights-pre/confusion_matrix_res.png')
 plt.show()
 
 """
@@ -168,5 +168,5 @@ ax.plot(fpr["macro"], tpr["macro"], label="macro-average, AUC = {:.4f}".format(r
 ax.set_xlabel('False Positive Rate')
 ax.set_ylabel('True Positive Rate')
 ax.legend()
-plt.savefig('best-without-weights/ROC curve.png')
+plt.savefig('best-with-weights-pre/ROC curve.png')
 plt.show()

@@ -83,9 +83,9 @@ def Homo(coordinates_dict, path, files):
 
 
 def all_(mother_frames_path):
-    cpt_glob =0
+    cpt_glob = 0
     for current_path, directories, files in os.walk(mother_frames_path):
-        if files != [] and 'psp' in current_path:
+        if files != [] and 'psp' in current_path and "photo_replacement" not in current_path:
             print(cpt_glob)
             print(current_path)
             coordinates_dict = find_coo(current_path)
