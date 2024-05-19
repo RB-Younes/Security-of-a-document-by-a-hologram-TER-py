@@ -6,10 +6,10 @@ import numpy as np
 from keras.preprocessing.image import ImageDataGenerator
 import seaborn as sns
 
-test_folder = 'E:/dataset MIDV HOLO/Mosaics V3 splited final/test'
+test_folder = 'E:/dataset MIDV HOLO/Mosaics_V3_no_rat_splited_final/test'
 
 
-test_datagen = ImageDataGenerator(rescale=1. / 255)  # Image normalization.
+test_datagen = ImageDataGenerator(preprocessing_function=tf.keras.applications.mobilenet.preprocess_input)  # Image normalization.
 
 test_set = test_datagen.flow_from_directory(test_folder,
                                             target_size=(224, 224),
@@ -20,37 +20,37 @@ test_set = test_datagen.flow_from_directory(test_folder,
 """# **Performance Metrics**"""
 
 # load best 64b model
-model = tf.keras.models.load_model('best-with-weights-pre/last_epoch_model.h5')
+model = tf.keras.models.load_model('12-lil patches model without weights/best_model.h5')
 
 model.summary()
 
 # load the saved model from file
-with open('best-with-weights-pre/history.pkl', 'rb') as file:
-    hist = pickle.load(file)
+#with open('12-lil patches model without weights/history.pkl', 'rb') as file:
+#    hist = pickle.load(file)
 
 # access the history attribute of the model
-index_of_min = np.argmin(hist['val_loss'])  # min val loss
-loss = hist['loss'][index_of_min]
-val_loss = hist['val_loss'][index_of_min]
-acc = hist['acc'][index_of_min]
-val_acc = hist['val_acc'][index_of_min]
-print('---------------------best_model-----------------------')
-print('acc: ' + "{:0.4f}".format(acc))
-print('loss: ' + "{:0.4f}".format(loss))
-print('val_acc: ' + "{:0.4f}".format(val_acc))
-print('val_loss: ' + "{:0.4f}".format(val_loss))
+#index_of_min = np.argmax(hist['val_acc'])  # min val loss
+#loss = hist['loss'][index_of_min]
+#val_loss = hist['val_loss'][index_of_min]
+#acc = hist['acc'][index_of_min]
+#val_acc = hist['val_acc'][index_of_min]
+#print('---------------------best_model-----------------------')
+#print('acc: ' + "{:0.4f}".format(acc))
+#print('loss: ' + "{:0.4f}".format(loss))
+#print('val_acc: ' + "{:0.4f}".format(val_acc))
+#print('val_loss: ' + "{:0.4f}".format(val_loss))
 
-index_last_epoch = len(hist['loss']) - 1
-loss = hist['loss'][index_last_epoch]
-val_loss = hist['val_loss'][index_last_epoch]
-acc = hist['acc'][index_last_epoch]
-val_acc = hist['val_acc'][index_last_epoch]
+#index_last_epoch = len(hist['loss']) - 1
+#loss = hist['loss'][index_last_epoch]
+#val_loss = hist['val_loss'][index_last_epoch]
+#acc = hist['acc'][index_last_epoch]
+#val_acc = hist['val_acc'][index_last_epoch]
 
 print('---------------------last_epoch_model-----------------------')
-print('acc: ' + "{:0.4f}".format(acc))
-print('loss: ' + "{:0.4f}".format(loss))
-print('val_acc: ' + "{:0.4f}".format(val_acc))
-print('val_loss: ' + "{:0.4f}".format(val_loss))
+#print('acc: ' + "{:0.4f}".format(acc))
+#print('loss: ' + "{:0.4f}".format(loss))
+#print('val_acc: ' + "{:0.4f}".format(val_acc))
+#print('val_loss: ' + "{:0.4f}".format(val_loss))
 
 """
 
@@ -79,7 +79,7 @@ confusion_matrix_res = confusion_matrix(test_set.classes, y_pred)
 sns.heatmap(confusion_matrix_res, annot=True, fmt="d")
 plt.xlabel("Predicted Label", fontsize=12)
 plt.ylabel("True Label", fontsize=12)
-plt.savefig('best-with-weights-pre/confusion_matrix_res.png')
+plt.savefig('12-lil patches model without weights/confusion_matrix_res.png')
 plt.show()
 
 """
@@ -168,5 +168,5 @@ ax.plot(fpr["macro"], tpr["macro"], label="macro-average, AUC = {:.4f}".format(r
 ax.set_xlabel('False Positive Rate')
 ax.set_ylabel('True Positive Rate')
 ax.legend()
-plt.savefig('best-with-weights-pre/ROC curve.png')
+plt.savefig('12-lil patches model without weights/ROC curve.png')
 plt.show()

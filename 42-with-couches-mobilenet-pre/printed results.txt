@@ -1,0 +1,62 @@
+E:\miniconda\envs\tf\python.exe "E:\TER py\Test_model.py"
+Found 1200 images belonging to 2 classes.
+2024-05-18 18:53:04.793733: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX AVX2
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-05-18 18:53:05.632243: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1616] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 2771 MB memory:  -> device: 0, name: NVIDIA GeForce GTX 1050 Ti with Max-Q Design, pci bus id: 0000:01:00.0, compute capability: 6.1
+Model: "sequential"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #
+=================================================================
+ mobilenet_1.00_224 (Functio  (None, 7, 7, 1024)       3228864
+ nal)
+
+ global_average_pooling2d (G  (None, 1024)             0
+ lobalAveragePooling2D)
+
+ batch_normalization (BatchN  (None, 1024)             4096
+ ormalization)
+
+ dropout (Dropout)           (None, 1024)              0
+
+ dense (Dense)               (None, 256)               262400
+
+ dense_1 (Dense)             (None, 1)                 257
+
+=================================================================
+Total params: 3,495,617
+Trainable params: 3,337,473
+Non-trainable params: 158,144
+_________________________________________________________________
+---------------------best_model-----------------------
+acc: 0.9774
+loss: 0.0696
+val_acc: 0.9083
+val_loss: 0.3284
+---------------------last_epoch_model-----------------------
+acc: 0.9837
+loss: 0.0523
+val_acc: 0.8908
+val_loss: 0.3822
+2024-05-18 18:53:08.395727: I tensorflow/stream_executor/cuda/cuda_dnn.cc:384] Loaded cuDNN version 8100
+1200/1200 [==============================] - 14s 9ms/step - loss: 0.2716 - acc: 0.9083
+Test accuracy: 0.9083333611488342
+Test loss: 0.27157285809516907
+1200/1200 [==============================] - 8s 6ms/step
+              precision    recall  f1-score   support
+
+           0     0.8222    0.8861    0.8529       360
+           1     0.9495    0.9179    0.9334       840
+
+    accuracy                         0.9083      1200
+   macro avg     0.8858    0.9020    0.8932      1200
+weighted avg     0.9113    0.9083    0.9093      1200
+
+Class 0: Sensitivity = 0.8861, Specificity = 0.9179
+Class 1: Sensitivity = 0.9179, Specificity = 0.8861
+Macro-averaged Sensitivity = 0.9020, Macro-averaged Specificity = 0.9020
+(1200, 3)
+(1200, 3)
+E:\miniconda\envs\tf\lib\site-packages\sklearn\metrics\_ranking.py:1146: UndefinedMetricWarning: No positive samples in y_true, true positive value should be meaningless
+  warnings.warn(
+
+Process finished with exit code 0

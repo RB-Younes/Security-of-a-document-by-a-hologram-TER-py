@@ -31,7 +31,7 @@ def restructure_folders(main_dir, dest_dir):
 
 
 if __name__ == "__main__":
-    main_directory = "E:/dataset MIDV HOLO/Mosaics V3 splited/"
-    final_directory = "E:/dataset MIDV HOLO/Mosaics V3 splited final/"
+    main_directory = "E:/dataset MIDV HOLO/Mosaics_V3_no_rat_splited/"
+    final_directory = "E:/dataset MIDV HOLO/Mosaics_V3_no_rat_splited_final/"
 
     restructure_folders(main_directory, final_directory)

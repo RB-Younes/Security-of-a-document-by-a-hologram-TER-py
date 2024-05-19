@@ -3,8 +3,8 @@ import shutil
 import random
 
 # Définir les répertoires source et de sortie
-main_folder = "E:/dataset MIDV HOLO/Mosaics_V3/"
-output_folder = "E:/dataset MIDV HOLO/Mosaics V3 splited/"
+main_folder = "E:/dataset MIDV HOLO/Mosaics_V3_no_rat/"
+output_folder = "E:/dataset MIDV HOLO/Mosaics_V3_no_rat_splited/"
 train_folder = os.path.join(output_folder, "train")
 val_folder = os.path.join(output_folder, "validation")
 test_folder = os.path.join(output_folder, "test")
