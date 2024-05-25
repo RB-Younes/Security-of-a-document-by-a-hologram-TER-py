@@ -49,6 +49,10 @@ La méthode implémentée a montré des résultats prometteurs pour la classific
 
 Pour améliorer notre méthode, nous envisageons de tester notre approche sur des passeports comportant des hologrammes plus complexes et d'intégrer un modèle de réseau de neurones convolutifs (CNN) pour améliorer la classification des cartes de couleurs associées aux passeports.
 
+## Dataset
+
+Vous pouvez trouver le jeu de données MIDV-Holo [ici](https://github.com/SmartEngines/midv-holo).
+
 ## Membres du Projet
 
 - **ABED Nada Fatima Zohra**
