@@ -11,11 +11,13 @@ Ce projet vise à classifier les passeports en deux catégories, "Holo" (avec ho
 
 ## Approche Générale
 
-1. **Prétraitement des Images** : Les images des passeports sont découpées en petites patch de tailles différentes (80x71 et 40x40 pixels) afin de creer des mosaiques.
-2. **Création des Color-Maps** : Pour chaque passeport, nous  utilisant notre model pour classifier ses mosaiques, afin de creer une color-Map.
-3. **Détermination du Seuil** : Nous utilisons une régression pour déterminer un seuil qui sépare efficacement les données en "Holo" et "No-Holo".
-4. **Classification** : Les passeports sont classifiés en utilisant le seuil déterminé sur les ensembles d'entraînement et de test.
-5. **Évaluation** : Nous évaluons notre approche en testant la classification sur des ensembles de passeports, y compris des passeports avec remplacement de photo.
+1. **Division en Patchs** : Les passeports sont d'abord découpés en petits patchs afin de créer des mosaïques. Cela permet d'analyser de manière plus fine et localisée les différentes parties du passeport.
+2. **Classification des Mosaïques** : Chaque patch est ensuite classifié à l'aide de notre modèle en "Holo" (vert) ou "No-Holo" (rouge).
+3. **Création des Color-Maps** : Les résultats de la classification des patchs sont utilisés pour créer une color-map sur le passeport initial. Cette carte colorée permet de visualiser la distribution des zones holographiques et non holographiques.
+4. **Calcul de Ratio** : Nous calculons le ratio de couleur rouge par rapport à l'ensemble de la color-map. Ce ratio nous permet de distinguer efficacement les passeports avec hologramme (faible ratio de rouge) de ceux sans hologramme (fort ratio de rouge).
+5. **Détermination du Seuil** : Nous utilisons une régression pour déterminer un seuil qui sépare efficacement les données en "Holo" et "No-Holo".
+6. **Classification** : Les passeports sont classifiés en utilisant le seuil déterminé sur les ensembles d'entraînement et de test.
+7. **Évaluation** : Nous évaluons notre approche en testant la classification sur des ensembles de passeports, y compris des passeports avec remplacement de photo.
 
 
 ## Résultats de Classification des Passeports
@@ -35,10 +37,9 @@ Ce projet vise à classifier les passeports en deux catégories, "Holo" (avec ho
 
 - **Seuil déterminé (Th)** : 0.826
 - **Précision sur l'ensemble d'entraînement (train-d) "20 passeports"** : 96.67%
+![Répartition des Color-Map à l’aide du threshold Th sur train-d](./40_40_test30_split_training.png)
 - **Précision sur l'ensemble de test (test-d) "10 passeports"** : 96.67%
-
-![Répartition des Color-Map à l’aide du threshold Th sur train-d](path/to/figure_train_d_40x40.png)
-![Répartition des Color-Map à l’aide du threshold Th sur test-d](path/to/figure_test_d_40x40.png)
+![Répartition des Color-Map à l’aide du threshold Th sur test-d](./40_40_test30_split_test.png)
 
 ## Conclusion
 
@@ -47,6 +48,11 @@ La méthode implémentée a montré des résultats prometteurs pour la classific
 ## Perspectives Futures
 
 Pour améliorer notre méthode, nous envisageons de tester notre approche sur des passeports comportant des hologrammes plus complexes et d'intégrer un modèle de réseau de neurones convolutifs (CNN) pour améliorer la classification des cartes de couleurs associées aux passeports.
+
+## Membres du Projet
+
+- **ABED Nada Fatima Zohra**
+- **REBAI Mohamed Younes**
 
 ---
 
