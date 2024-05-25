@@ -2,7 +2,7 @@
 
 ## Description du Projet
 
-Ce projet a pour objectif de classifier les passeports en deux catégories : "Holo" (avec hologramme) et "No-Holo" (sans hologramme). Nous avons utilisé des techniques de vision par ordinateur et d'apprentissage automatique pour atteindre cet objectif. Les passeports sont d'abord divisés en mosaïques de différentes tailles, puis nous appliquons un ratio de couleur rouge pour distinguer les passeports.
+Ce projet vise à classifier les passeports en deux catégories, "Holo" (avec hologramme) et "No-Holo" (sans hologramme), en utilisant des techniques de vision par ordinateur et d'apprentissage automatique. Les passeports sont d'abord divisés en patchs pour créer des mosaïques, puis ces mosaïques sont classifiées à l'aide de notre modèle en "Holo" (vert) et "No-Holo" (rouge), ce qui nous permet de générer une color-map sur le passeport initial. Enfin, nous appliquons un ratio de couleur rouge pour distinguer les passeports, permettant ainsi une classification précise.
 
 ## Figure Générale de l'Approche
 
@@ -11,8 +11,8 @@ Ce projet a pour objectif de classifier les passeports en deux catégories : "Ho
 
 ## Approche Générale
 
-1. **Prétraitement des Images** : Les images des passeports sont découpées en petites mosaïques de deux tailles différentes (80x71 et 40x40 pixels).
-2. **Création des Color-Maps** : Pour chaque mosaïque, nous calculons le ratio de couleur rouge.
+1. **Prétraitement des Images** : Les images des passeports sont découpées en petites patch de tailles différentes (80x71 et 40x40 pixels) afin de creer des mosaiques.
+2. **Création des Color-Maps** : Pour chaque passeport, nous  utilisant notre model pour classifier ses mosaiques, afin de creer une color-Map.
 3. **Détermination du Seuil** : Nous utilisons une régression pour déterminer un seuil qui sépare efficacement les données en "Holo" et "No-Holo".
 4. **Classification** : Les passeports sont classifiés en utilisant le seuil déterminé sur les ensembles d'entraînement et de test.
 5. **Évaluation** : Nous évaluons notre approche en testant la classification sur des ensembles de passeports, y compris des passeports avec remplacement de photo.
