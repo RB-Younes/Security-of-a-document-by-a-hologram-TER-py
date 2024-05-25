@@ -6,7 +6,7 @@ Ce projet vise à classifier les passeports en deux catégories, "Holo" (avec ho
 
 ## Figure Générale de l'Approche
 
-![Figure Générale de l'Approche](path/to/figure_general.png)
+![Figure Générale de l'Approche](./Creation_et_pretratement_de_données.png)
 
 
 ## Approche Générale
