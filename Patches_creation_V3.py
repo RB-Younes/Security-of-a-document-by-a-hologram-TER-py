@@ -122,5 +122,4 @@ def all_(mother_frames_path, save_path):
 
 
 if __name__ == '__main__':
-    #
-    all_("E:/dataset MIDV HOLO/images_homo", "E:/dataset MIDV HOLO/Mosaics_V3")
+    all_("E:/dataset MIDV HOLO/test_photo_rep_homo_80", "E:/dataset MIDV HOLO/test_mosa_rep_80")

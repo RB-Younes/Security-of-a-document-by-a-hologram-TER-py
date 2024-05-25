@@ -6,7 +6,7 @@ import numpy as np
 from keras.preprocessing.image import ImageDataGenerator
 import seaborn as sns
 
-test_folder = 'E:/dataset MIDV HOLO/Mosaics_V3_no_rat_splited_final/test'
+test_folder = 'E:/dataset MIDV HOLO/test_photo_rep_final_80_final_split/train'
 
 
 test_datagen = ImageDataGenerator(preprocessing_function=tf.keras.applications.mobilenet.preprocess_input)  # Image normalization.
@@ -20,7 +20,7 @@ test_set = test_datagen.flow_from_directory(test_folder,
 """# **Performance Metrics**"""
 
 # load best 64b model
-model = tf.keras.models.load_model('12-lil patches model without weights crashed/best_model.h5')
+model = tf.keras.models.load_model('12-with-couches-mobilenet-pre/best_model.h5')
 
 model.summary()
 
@@ -79,7 +79,7 @@ confusion_matrix_res = confusion_matrix(test_set.classes, y_pred)
 sns.heatmap(confusion_matrix_res, annot=True, fmt="d")
 plt.xlabel("Predicted Label", fontsize=12)
 plt.ylabel("True Label", fontsize=12)
-plt.savefig('12-lil patches model without weights crashed/confusion_matrix_res.png')
+plt.savefig('12-with-couches-mobilenet-pre/confusion_matrix_photo_rep.png')
 plt.show()
 
 """
@@ -168,5 +168,5 @@ ax.plot(fpr["macro"], tpr["macro"], label="macro-average, AUC = {:.4f}".format(r
 ax.set_xlabel('False Positive Rate')
 ax.set_ylabel('True Positive Rate')
 ax.legend()
-plt.savefig('12-lil patches model without weights crashed/ROC curve.png')
+plt.savefig('12-with-couches-mobilenet-pre/ROC curve_photo_rep.png')
 plt.show()
