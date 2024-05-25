@@ -24,11 +24,12 @@ Ce projet vise à classifier les passeports en deux catégories, "Holo" (avec ho
 
 - **Seuil déterminé par regression(Th)** : 0.696
 - **Précision sur l'ensemble d'entraînement (train-d) "20 passeports"** : 100%
+![Répartition des Color-Map à l’aide du threshold Th sur train-d](./80_71_test30_split_train.png)
 - **Précision sur l'ensemble de test (test-d) "10 passeports"** : 100%
+![Répartition des Color-Map à l’aide du threshold Th sur test-d](./80_71_test30_split_test.png)
 - **Classification des passeports avec remplacement de photo "50 passeports"** : 98.6% classifiés correctement en Holo, 1.4% en No-Holo
+![Répartition des Color-Map à l’aide du threshold Th sur test-d](./80_71_test50_all.png)
 
-![Répartition des Color-Map à l’aide du threshold Th sur train-d](path/to/figure_train_d_80x71.png)
-![Répartition des Color-Map à l’aide du threshold Th sur test-d](path/to/figure_test_d_80x71.png)
 
 ### Patch de taille 40x40
 
